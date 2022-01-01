@@ -1,0 +1,31 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+     <h3>Current Requests:</h3>
+    {% for request in requests %}
+    <div class="box-element">
+				<div class="cart-row">
+					<div style="flex:1"><strong>User</strong></div>
+					<div style="flex:1"><strong>Product</strong></div>
+					<div style="flex:1"><strong>Date</strong></div>
+                    <div style="flex:1"><strong>Method of Payment</strong></div>
+                    <div style="flex:1"><strong>Customisation</strong></div>
+				</div>
+				
+				<div class="cart-row">
+					<div style="flex:1"><p>{{request.user}}</p></div>
+					<div style="flex:1"><p>{{request.name}}</p></div>
+					<div style="flex:1"><p>{{request.date}}</p></div>
+					<div style="flex:1"><p>{{request.paymethod}}</p></div>
+					<div style="flex:1"><p>{{request.Customisation}}</p></div>
+				</div>
+				<a class="btn button" href="{% url 'updates' request.id%}">Update</a>
+
+				
+
+			</div>
+    {% endfor %}
+	<br></br>
+	<br></br>
+    
+{% endblock content %}

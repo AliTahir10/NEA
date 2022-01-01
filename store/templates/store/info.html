@@ -1,0 +1,96 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+body {font-family: 'Montserrat', sans-serif;}
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    
+}
+.user_card {
+    width: 600px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: #f7b0d7;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+
+}
+
+.form_container {
+    margin-top: 30px;
+}
+
+#form-title{
+    color: #d9579e
+}
+.submitbutton {
+    width: 100%;
+    background: #b596b5 !important;
+    color: white !important;
+}
+.submitbutton:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+.login_container {
+    padding: 0 2rem;
+}
+.input-group-text {
+    background: #775870 !important;
+    color: white !important;
+    border: 0 !important;
+    border-radius: 0.3rem 0 0 0.3rem !important;
+
+}
+.input_user,.input_pass:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+
+.bg-dark{
+    background-color: #c087b2!important;
+}
+
+.button,.btn-warning {
+    background-color: #641660;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;	
+}
+</style>
+<body>
+	<div class="container h-150">
+		<div class="d-flex justify-content-left h-100">
+			<div class="user_card">
+            <h3 id="form-title">{{product.name}}</h3>
+				<div class="d-flex justify-content-left">
+                    <img class="w3-image" width="300" src="{{product.picture.url}}">
+				</div>
+                <br></br>
+                <div class="box-element product">
+                    <h4 style="display: inline-block; float: right"><strong>£{{product.minprice|floatformat:2}}-£{{product.Maxprice|floatformat:2}}</strong></h4>
+                    {{product.description}}
+                </div>
+			</div>
+		</div>
+	</div>
+<br></br>
+    
+
+
+{% endblock content%}

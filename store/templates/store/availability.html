@@ -1,0 +1,15 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+     <h3>--Order Availability--</h3>
+     <p>These are the days that we are currently not available. If you do try make an enquiry on one of these days, then it is not guranteed that your enquiry will be accepted.</p>
+     <p>Booked Dates:<p>
+     {%for block in blocks%}
+          <p>-{{block.date}}</p>
+          
+     {% endfor %}
+
+     {% for message in messages %}
+		<p id="messages">{{message}}</p>
+	{% endfor %}
+{% endblock content %}

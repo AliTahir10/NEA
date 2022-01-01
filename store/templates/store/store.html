@@ -1,0 +1,36 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+	<form method="POST" action="{% url 'store' %}">
+    	{% csrf_token %}
+		<div class="d- center   box-sort">
+			<input class="button" type="submit" value="Price &pound;&uarr;" name="priceasc" title="Price Ascending">
+			<div class="divider"></div>
+			<input class="button" type="submit" value="Price &pound;&darr;" name="pricedesc" title="Price Descending">
+			<div class="divider"></div>
+			<input class="button" type="submit" value="Name &uarr;" name="nameasc" title="Name A-Z">
+			<div class="divider"></div>
+			<input class="button" type="submit" value="Name &darr;" name="namedesc" title="Name Z-A">
+			<div class="divider"></div>
+			<input type="text" name='Search' placeholder="Search...">
+			<input type="submit" value="&#128269;" title="Search">
+		</div>
+	</form>
+     <div class="row">
+		{% for product in products %}
+<!-- this loop allows each product  to have its own box and this box style only needs to be written once which increases the efficiency of the code-->
+		<div class="col-lg-4">
+			<img class="w3-image" width=350 src="{{product.picture.url}}">
+			<div class="box-element product">
+				<h6><strong>{{product.name}}</strong></h6>
+				<hr><!--creating a box which will house a product with buttons and extra info-->
+				<h4 style="display: inline-block; float: right"><strong>£{{product.minprice|floatformat:2}}-£{{product.Maxprice|floatformat:2}}</strong></h4>
+				<a class="btn button" href="{% url 'info' product.id%}">View</a>
+			</div>
+		</div>
+		{% endfor %}<!-- ends the loop-->
+	</div>
+
+<br></br>
+
+{% endblock content %}
